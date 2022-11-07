@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-
+import Link from "next/link";
 const supabase = createClient(
   "https://cmqxnlontexbrcgilpqs.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNtcXhubG9udGV4YnJjZ2lscHFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDgyMzgxMjYsImV4cCI6MTk2MzgxNDEyNn0.r-fRpNtLRnGUIji-sAu2ecAY-d635SsGHS08Va5-u20",
@@ -12,7 +12,9 @@ function Blog({ posts }) {
       fdjskl
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
+          <li key={post.id}>
+            <Link href={"/post/" + post.id}>{post.title}</Link>
+          </li>
         ))}
       </ul>
     </div>
