@@ -13,7 +13,7 @@ function Blog({ posts }) {
       fdjskl
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>{post.creator_id}</li>
+          <li key={post.id}>{post.title}</li>
         ))}
       </ul>
     </div>
