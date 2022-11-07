@@ -13,10 +13,14 @@ export default function Post({ post }) {
 export async function getStaticPaths() {
   const postsobj = await supabase.from("posts").select("*");
   const posts = postsobj.data;
-  const paths = posts.map((post) => ({
-    params: { id: post.id },
-  }));
-
+  console.log(posts);
+  const paths = posts.map((post) => {
+    console.log(post);
+    return {
+      params: { id: "" + post.id },
+    };
+  });
+  console.log(paths);
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
   return { paths, fallback: false };

@@ -7,7 +7,6 @@ const supabase = createClient(
 );
 
 function Blog({ posts }) {
-  console.log(posts);
   return (
     <div>
       fdjskl
@@ -21,7 +20,6 @@ function Blog({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await supabase.from("posts").select("*");
-  console.log(posts.data);
   return {
     props: {
       posts: posts.data,
